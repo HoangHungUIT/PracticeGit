@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <div class="webName">
+                Blockchain Demo
+            </div>
+                
+            <ul id="nav">
+                <li id="btn_connect"><a href="">Connect</a></li>
+                <li id="btn_tasks"><a href="">Tasks</a></li>
+                <li id="btn_random"><a href="">History</a></li>
+            </ul>
+        </div>
+
+        <div class="container" id="tab_content1">
+            <button onclick="connectMetamask()">CONNECT TO METAMASK</button> <br>
+            <p id="accountArea"></p>
+
+            <button onclick="connectContract()">CONNECT TO SMART CONTRACT</button> <br>
+            <p id="contractArea"></p>
+        </div> 
+
+        <div class="container" id="tab_content2">
+            <button onclick="readContract()">GET DATA FROM CONTRACT</button> <br>
+            <p id="dataArea"></p>
+
+            <button onclick="changeContract()">CHANGE DATA FROM CONTRACT</button> <br>
+            <input type="text" id="inputArea">
+        </div>
+
+        <!-- tab content -->
+        <div class="container" id="tab_content3">
+            <button onclick="randomNumber()">RANDOM A NUMBER</button> <br>
+            <p id="number"></p>
+            <p id="test"></p>
+            <table id="table_result" border="2">
+                <tr>
+                   <th>Number</th>
+                   <th>User</th>
+                   <th>Step</th>
+                   <th>Token</th>
+                </tr>
+                <tr>
+                   <td>1</td>
+                   <td>User1</td>
+                   <td id="stepUser1">...</td>
+                   <td id="tokenUser1">...</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>User2</td>
+                    <td id="stepUser2">...</td>
+                    <td id="tokenUser2">...</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>User3</td>
+                    <td id="stepUser3">...</td>
+                    <td id="tokenUser3">...</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>User4</td>
+                    <td id="stepUser4">...</td>
+                    <td id="tokenUser4">...</td>
+                 </tr>
+             </table>
+        </div> 
+    </div>
+
+</body>
+</html>

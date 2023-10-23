@@ -1,0 +1,302 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <div class="webName">
+                Blockchain Demo
+            </div>
+                
+
+            <ul id="nav">
+                <li><a href="">Connect</a></li>
+                <li><a href="">Tasks</a></li>
+                <li><a href="">History</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <button onclick="connectMetamask()">CONNECT TO METAMASK</button> <br>
+            <p id="accountArea"></p>
+
+            <button onclick="connectContract()">CONNECT TO SMART CONTRACT</button> <br>
+            <p id="contractArea"></p>
+
+            <button onclick="readContract()">GET DATA FROM CONTRACT</button> <br>
+            <p id="dataArea"></p>
+
+            <button onclick="changeContract()">CHANGE DATA FROM CONTRACT</button> <br>
+            <input type="text" id="inputArea">
+        </div> 
+        <div id="content">
+        </div>
+    </div>
+
+</body>
+</html>
+
+CSS
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header{
+    background-color: rgb(45, 41, 41);
+    height: 80px;
+}
+
+#header .webName{
+    display: inline-block;
+    color: #fff;
+    line-height: 80px;
+    text-decoration: none;
+    padding: 0px 0px 0px 24px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+#nav{
+    display: inline-block;
+    padding-right: 24px;
+    float: right;
+}
+
+#nav li{
+display: inline-block;
+}
+
+#nav li :hover{
+    background-color: #000;
+    color: white;
+}
+
+#nav li a{
+    color: #bbb7b7;
+    line-height: 80px;
+    text-decoration: none;
+    padding: 0px 24px;
+    text-transform: capitalize;
+    display: inline-block;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+body {
+    background-color: palevioletred;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    display: block;
+    background-color: aquamarine;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+button:hover{
+    background-color: yellow;
+}
+
+JS
+// connect to metamask
+let account
+const connectMetamask = async () => {
+    if(window.ethereum !== "undefined"){
+        const accounts = await ethereum.request({method: "eth_requestAccounts"});
+        account = accounts[0];
+        document.getElementById("accountArea").innerHTML = account;
+    }
+}
+
+// connect to smart contract
+const connectContract = async () => {
+    const ABI = [
+        {
+            "inputs": [
+                {
+                    "internalType": "int256",
+                    "name": "left",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "right",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "ranNumber",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "result",
+                    "type": "int256"
+                }
+            ],
+            "name": "binarySearch",
+            "outputs": [
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_fullName",
+                    "type": "string"
+                }
+            ],
+            "name": "changeName",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "int256",
+                    "name": "ranNumber",
+                    "type": "int256"
+                }
+            ],
+            "name": "countStepUser1",
+            "outputs": [
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "int256",
+                    "name": "ranNumber",
+                    "type": "int256"
+                }
+            ],
+            "name": "countStepUser2",
+            "outputs": [
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "int256",
+                    "name": "ranNumber",
+                    "type": "int256"
+                }
+            ],
+            "name": "countStepUser3",
+            "outputs": [
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getName",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "myFullName",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]   ;
+    const Address = "0xEa0c2D0d3AB685f6780BeDa5f4f64b91a8D84048";
+    window.web3 = await new Web3(window.ethereum);
+    window.contract = await new window.web3.eth.Contract(ABI, Address);
+    document.getElementById("contractArea").innerHTML = "Connected to Smart Contract";
+}
+// read data from smart contract
+const readContract = async () => {
+    const data = await window.contract.methods.getName().call();
+    document.getElementById("dataArea").innerHTML = data;
+}
+
+// change data from smart contract
+const changeContract = async () => {
+    const myEntry = document.getElementById("inputArea").value;
+    await window.contract.methods.changeName(myEntry).send({from: account});
+    readContract();  
+}
+
+server
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+app.use(express.static(path.join(__dirname, "Project")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "Project", "index.html"));
+});
+
+const server = app.listen(5000, () => {
+    console.log("Server is running on port 5000");
+});

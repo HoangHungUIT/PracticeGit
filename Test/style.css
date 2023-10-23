@@ -1,0 +1,78 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header{
+  background-color: rgb(45, 41, 41);
+  height: 60px;
+}
+
+#header .webName{
+  display: inline-block;
+  color: #fff;
+  line-height: 60px;
+  text-decoration: none;
+  padding: 0px 0px 0px 24px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+#nav{
+  display: inline-block;
+  padding-right: 24px;
+  float: right;
+}
+
+#nav li{
+display: inline-block;
+}
+
+#nav li :hover{
+  background-color: #000;
+  color: white;
+}
+
+#nav li a{
+  color: #bbb7b7;
+  line-height: 60px;
+  text-decoration: none;
+  padding: 0px 24px;
+  text-transform: capitalize;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+body {
+  background-color: palevioletred;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  display: block;
+  background-color: aquamarine;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+button:hover{
+  background-color: yellow;
+}
+
+
+
